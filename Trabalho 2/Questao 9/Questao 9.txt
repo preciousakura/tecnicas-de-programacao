@@ -1,0 +1,3 @@
+9) Ocorre um erro pois o construtor feito nos itens 7 requerem
+dois argumentos, o nome e a idade da pessoa.
+Quando chamamos new Pessoa() vemos um erro aparecer.
