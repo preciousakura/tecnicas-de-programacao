@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.*;
+
+class WordFrequency3 {
+  String texto;
+  int palavras;
+  int NumeroDeLetras;
+
+  WordFrequency3(){
+    Scanner entradaTeclado = new Scanner(System.in);
+    this.texto = entradaTeclado.nextLine().toLowerCase();
+    entradaTeclado.close();
+  }
+  
+  String[] separar(){
+    String[] string2 = this.texto.split(" ");
+    List list = Arrays.asList(string2);
+    Arrays.sort(string2, Collections.reverseOrder());
+    return string2;
+  }
+
+  //void verificaSeExiste(String[] textos, String texto) {
+    //for(int i = 0; i < texto.)}
+  void ContarVezes(String parte) {
+    int repeat = 0;
+    for(int i = 0; i < this.separar().length; i++) {
+      if(this.separar()[i].toLowerCase().equals(parte.toLowerCase())) repeat++;
+    }
+    
+    System.out.println(parte+": "+repeat);
+
+  }
+
+  int verificarRepeticao(int index, String parte) {
+    int repetir = 0;
+    for(int i = index; i >= 0; i--) {
+      if(parte.toLowerCase().equals(this.separar()[i].toLowerCase())) repetir++;
+    } return repetir;
+  }
+
+  void frequencia() {
+    for (int i = 0; i < this.separar().length; i++){
+      if(verificarRepeticao(i, this.separar()[i]) == 1) this.ContarVezes(this.separar()[i].toLowerCase());
+    }
+  }
+}
